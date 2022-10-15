@@ -33,14 +33,27 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          
+          <h1>${variables.name == null ? "Lucy" : variables.name} ${
+    variables.lastname == null ? "Loreto" : variables.lastname
+  }</h1>
+          <h2>${variables.role == null ? "Role" : variables.role}</h2>
+          <h3>${variables.city == null ? "City" : variables.city}, ${
+    variables.country == null ? "Country" : variables.country
+  }</h3>
+          <ul class=${variables.socialMediaPosition}>
+            <li><a href="https://twitter.com/${
+              variables.twitter
+            }"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github
+            }"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${
+              variables.linkedin
+            }"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${
+              variables.instagram
+            }"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -54,9 +67,11 @@ window.onload = function() {
     // if includeCover is true the algorithm should
     includeCover: true,
     // this is the url of the image that will used as background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://cdn.vox-cdn.com/thumbor/OJ9uFzxD2SGVDfSxbt5jkWYoCfE=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/7272727/black-widow.jpg",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://m.media-amazon.com/images/M/MV5BMTM3OTUwMDYwNl5BMl5BanBnXkFtZTcwNTUyNzc3Nw@@._V1_.jpg",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
